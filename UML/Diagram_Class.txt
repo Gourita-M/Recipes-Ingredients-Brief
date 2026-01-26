@@ -1,0 +1,59 @@
+@startuml
+
+class User {
+  -user_id : int
+  +username : string
+  +user_email : string
+  +user_password : string
+
+  +createRecipe()
+  +editRecipe()
+  +deleteRecipe()
+  +addComment()
+}
+
+class Recipe {
+  +recipe_id : int
+  +recipe_title : string
+  +recipe_description : string
+  +recipe_category : string
+  +recipe_image : string
+
+  +create()
+  +update()
+  +delete()
+}
+
+class Ingredient {
+  +ingredient_id : int
+  +ingredient_name : string
+  +quantity : string
+
+  +addIngredient()
+  +removeIngredient()
+}
+
+class Comment {
+  +comment_id : int
+  +comment_content : string
+  +createdAt : date
+
+  +addComment()
+  +deleteComment()
+}
+
+class Rating {
+  +rating_id : int
+  +rating_value : int
+
+  +addRating()
+}
+
+User "1" --> "0..*" Recipe
+Recipe "1" --> "1..*" Ingredient
+Recipe "1" --> "0..*" Comment
+User "1" --> "0..*" Comment
+User "1" --> "0..*" Rating
+Recipe "1" --> "0..*" Rating
+
+@enduml
