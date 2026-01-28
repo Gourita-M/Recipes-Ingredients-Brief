@@ -8,7 +8,15 @@ class LoginController extends Controller
 {
     public function index()
     {
-        // This will load the view we create next
         return view('login.index');
+    }
+
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
     }
 }
