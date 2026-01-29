@@ -51,13 +51,14 @@
         Welcome back, <strong>{{session('username')}}</strong> 👋
       </span>
 
-      <a href="11"
-        class="px-4 py-2 rounded-full bg-gray-200 text-sm hover:bg-gray-300">
-        Logout
-      </a>
+      <form method="POST" action="/logout">
+    @csrf
+      <button class="px-4 py-2 rounded-full bg-gray-200 text-sm hover:bg-gray-300" type="submit">Logout</button>
+    </form>
+
     </div>
     @else
-    <a href="/login"
+    <a href="login"
        class="px-4 py-2 rounded-full bg-accent text-white text-sm hover:opacity-90">
       Login
     </a>
@@ -76,11 +77,11 @@
         A friendly platform where food lovers discover, share, and discuss homemade recipes from around the world.
       </p>
       <div class="flex gap-4">
-        <a href="#" class="bg-accent text-white px-8 py-3 rounded-full">
+        <a href="./recipes" class="bg-accent text-white px-8 py-3 rounded-full">
           Explore Recipes
         </a>
         @if(session('username'))
-        <a href="#" class="border border-accent text-accent px-8 py-3 rounded-full">
+        <a href="./addrecipe" class="border border-accent text-accent px-8 py-3 rounded-full">
           Add a Recipe
         </a>
         @endif

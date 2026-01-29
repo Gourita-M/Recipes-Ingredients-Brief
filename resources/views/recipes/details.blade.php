@@ -38,7 +38,6 @@
   </div>
 </header>
 
-<!-- RECIPE DETAILS -->
 <section class="py-20">
   <div class="max-w-4xl mx-auto px-6">
 
@@ -66,19 +65,32 @@
 
     <h2 class="font-serif text-2xl mb-6">Comments</h2>
 
-     @foreach($comments as $comment)
+    @foreach($comments as $comment)
     <div class="bg-white rounded-xl shadow p-6 mb-6">
-      <div class="flex justify-between mb-2">
-        <span class="font-medium">{{$comment->utilisateur->username}}</span>
-        <span class="text-xs text-gray-400">{{$comment->created_at}}</span>
+    <div class="flex justify-between items-center mb-2">
+      <div>
+          <span class="font-medium">{{$comment->utilisateur->username}}</span>
+          <span class="text-xs text-gray-400 ml-2">{{$comment->created_at}}</span>
+        </div>
+        <div class="flex space-x-2">
+        @if($comment->user_id == session('user_id'))
+          <button 
+            class="text-indigo-600 hover:text-indigo-800 text-sm font-semibold">
+            Edit
+          </button>
+          <button type="submit" class="text-red-600 hover:text-red-800 text-sm font-semibold">
+              Delete
+          </button>
+        @endif
+        </div>
       </div>
       <p class="text-sm">
         {{$comment->comment_content}}
       </p>
     </div>
+
     @endforeach
 
-    <!-- ADD COMMENT -->
     <h3 class="font-serif text-xl mb-4">Leave a comment</h3>
 
     <form class="bg-white rounded-xl shadow p-6 space-y-4">
@@ -96,7 +108,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="bg-white py-12 text-center text-sm">
   © 2026 GastroShare. All rights reserved.
 </footer>

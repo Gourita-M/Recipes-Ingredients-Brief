@@ -1,11 +1,3 @@
-<?php 
-  if(isset($info)){
-print_r($info); 
-
-echo $info->first()->user_password;
-
-  }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
