@@ -35,8 +35,8 @@
   <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
     <div class="font-serif text-2xl font-semibold">GastroShare</div>
     <nav class="flex gap-8 text-sm">
-      <a href="#" class="hover:text-accent">Home</a>
-      <a href="#" class="text-accent font-medium">Recipes</a>
+      <a href="./home" class="hover:text-accent">Home</a>
+      <a href="./recipes" class="text-accent font-medium">Recipes</a>
       <a href="#" class="hover:text-accent">Categories</a>
     </nav>
   </div>

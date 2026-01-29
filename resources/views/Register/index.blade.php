@@ -42,25 +42,25 @@
   <div class="bg-white rounded-xl shadow-xl p-10 max-w-md w-full">
     <h1 class="font-serif text-3xl mb-6 text-center">Join GastroShare</h1>
 
-    <form class="space-y-4">
+    <form class="space-y-4" method="POST" action="{{ route('register.submit') }}">@csrf
       <div>
         <label class="text-sm">Username</label>
-        <input type="text" class="w-full mt-1 px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-accent" />
+        <input name="username" type="text" class="w-full mt-1 px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-accent" />
       </div>
 
       <div>
         <label class="text-sm">Email</label>
-        <input type="email" class="w-full mt-1 px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-accent" />
+        <input name="email" type="email" class="w-full mt-1 px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-accent" />
       </div>
 
       <div>
         <label class="text-sm">Password</label>
-        <input type="password" class="w-full mt-1 px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-accent" />
+        <input name="password" type="password" class="w-full mt-1 px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-accent" />
       </div>
 
       <div>
         <label class="text-sm">Confirm Password</label>
-        <input type="password" class="w-full mt-1 px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-accent" />
+        <input name="password_confirmation" type="password" class="w-full mt-1 px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-accent" />
       </div>
 
       <button class="w-full bg-accent text-white py-3 rounded-full mt-4">

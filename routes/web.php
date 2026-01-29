@@ -10,25 +10,15 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/login', function () {
-    return view('login/index');
-});
+Route::get('/login', [LoginController::class, 'index'])->name('login.form');
+Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 
 Route::get('/recipes', [RecipeController::class, 'index']);
-
-Route::post('/login', [LoginController::class, 'authenticate'])->name('login.submit');
+Route::get('/recipedetails/{id}', [RecipeController::class, 'getRecipeById']);
 
 Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
 
 Route::get('/', function () {
     return view('login/index');
 });
-
-// Route::get('/login/{id}', function ($id) {
-//     return view('login.index', ['id' => $id]);
-// });
-
-// Route::get('/recipes', function () {
-    
-//     return view('recipes/index');
-// });

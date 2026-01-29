@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Recipe extends Model
 {
     protected $table = 'recipes';
+    protected $primaryKey = 'recipe_id';
+
+    public function comments()
+    {
+        return $this->hasMany(Comments::class, 'recipe_id');
+    }
 
     protected $fillable = [
         'recipe_title',
@@ -15,4 +21,6 @@ class Recipe extends Model
         'recipe_image',
         'user_id'
     ];
+
+    
 }

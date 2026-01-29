@@ -1,3 +1,6 @@
+<?= session('user_id') ?>
+<?= session('username') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,11 +43,25 @@
       <a href="./home" class="hover:text-accent">Home</a>
       <a href="./recipes" class="hover:text-accent">Recipes</a>
       <a href="#" class="hover:text-accent">Categories</a>
-      <a href="#" class="hover:text-accent">Statistics</a>
+
     </nav>
-    <a href="#" class="bg-accent text-white px-6 py-2 rounded-full text-sm">
-      Publish a Recipe
+    @if(session('username'))
+      <div class="flex items-center gap-4">
+      <span class="text-sm">
+        Welcome back, <strong>{{session('username')}}</strong> 👋
+      </span>
+
+      <a href="11"
+        class="px-4 py-2 rounded-full bg-gray-200 text-sm hover:bg-gray-300">
+        Logout
+      </a>
+    </div>
+    @else
+    <a href="/login"
+       class="px-4 py-2 rounded-full bg-accent text-white text-sm hover:opacity-90">
+      Login
     </a>
+    @endif
   </div>
 </header>
 
@@ -62,9 +79,11 @@
         <a href="#" class="bg-accent text-white px-8 py-3 rounded-full">
           Explore Recipes
         </a>
+        @if(session('username'))
         <a href="#" class="border border-accent text-accent px-8 py-3 rounded-full">
           Add a Recipe
         </a>
+        @endif
       </div>
     </div>
     <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
