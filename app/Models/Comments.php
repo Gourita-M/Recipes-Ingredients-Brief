@@ -6,10 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comments extends Model
 {
-    protected $primaryKey = 'comment_id';
+    protected $table = 'comments';
 
+    protected $primaryKey = 'comment_id';
+    public $timestamps = false;
+    
     protected $fillable = [
-        
+        'comment_content',
+        'user_id',
+        'recipe_id'
+
     ];
 
     public function utilisateur()

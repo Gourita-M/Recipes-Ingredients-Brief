@@ -17,6 +17,8 @@ Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 
 Route::get('/recipes', [RecipeController::class, 'index']);
 Route::get('/recipedetails/{id}', [RecipeController::class, 'getRecipeById']);
+Route::post('/recipedetails/{id}/Comment', [RecipeController::class, 'addComment'])->name('add.comment');
+
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
@@ -28,3 +30,5 @@ Route::get('/', function () {
 Route::post('/logout', [LogoutController::class, 'logout']);
 Route::get('/addrecipe', [RecipeController::class, 'Recipeform']);
 Route::post('/addrecipe', [RecipeController::class, 'addRecipe'])->name('recipe.submit');
+
+Route::get('/own/{id}', [RecipeController::class, 'showMyRecipe']);

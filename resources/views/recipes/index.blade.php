@@ -32,13 +32,32 @@
 <body class="bg-cream text-gray-700 font-sans">
 
 <header class="bg-white shadow-sm sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
     <div class="font-serif text-2xl font-semibold">GastroShare</div>
-    <nav class="flex gap-8 text-sm">
+    <nav class="hidden md:flex gap-8 text-sm">
       <a href="./home" class="hover:text-accent">Home</a>
-      <a href="./recipes" class="text-accent font-medium">Recipes</a>
-      <a href="#" class="hover:text-accent">Categories</a>
+      <a href="./recipes" class="hover:text-accent">Recipes</a>
+      <a href="./own/{{session('user_id')}}" class="hover:text-accent">My Recipes</a>
+
     </nav>
+    @if(session('username'))
+      <div class="flex items-center gap-4">
+      <span class="text-sm">
+        Welcome back, <strong>{{session('username')}}</strong> 👋
+      </span>
+
+      <form method="POST" action="/logout">
+    @csrf
+      <button class="px-4 py-2 rounded-full bg-gray-200 text-sm hover:bg-gray-300" type="submit">Logout</button>
+    </form>
+
+    </div>
+    @else
+    <a href="login"
+       class="px-4 py-2 rounded-full bg-accent text-white text-sm hover:opacity-90">
+      Login
+    </a>
+    @endif
   </div>
 </header>
 

@@ -42,7 +42,7 @@
     <nav class="hidden md:flex gap-8 text-sm">
       <a href="./home" class="hover:text-accent">Home</a>
       <a href="./recipes" class="hover:text-accent">Recipes</a>
-      <a href="#" class="hover:text-accent">Categories</a>
+      <a href="./own/{{session('user_id')}}" class="hover:text-accent">My Recipes</a>
 
     </nav>
     @if(session('username'))
@@ -66,7 +66,6 @@
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
 <section class="bg-soft py-24">
   <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center px-6">
     <div>

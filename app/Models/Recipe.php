@@ -8,6 +8,7 @@ class Recipe extends Model
 {
     protected $table = 'recipes';
     protected $primaryKey = 'recipe_id';
+    public $timestamps = false;
 
     public function comments()
     {

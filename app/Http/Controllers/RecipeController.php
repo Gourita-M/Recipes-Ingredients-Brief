@@ -6,6 +6,7 @@ use App\Models\Recipe;
 use App\Models\Ingredients;
 use App\Models\Comments;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class RecipeController extends Controller
 {
@@ -38,11 +39,41 @@ class RecipeController extends Controller
         'title' => 'required|string|max:255',
         'description' => 'required|string',
         'category' => 'required|string',
-        'ingredients' => 'required|array|min:1',
-        'ingredients.*' => 'required|string|max:255',
-        'image' => 'required',
+        'image' => 'required'
     
     ]);
+
+    Recipe::create([
+        'recipe_title' => $data['title'],
+        'recipe_description' => $data['description'],
+        'recipe_category' => $data['category'],
+        'recipe_image' => $data['image'],
+        'user_id' => session('user_id'),
+    ]);
+    
+        return Redirect('recipes');
+    }
+
+    public function showMyRecipe($id)
+    {
+        $recipess = Recipe::where('user_id', $id)->get();
+        return view('recipes.myrecipes', compact('recipess'));
+    }
+
+
+    public function addComment(Request $request, $id)
+    {
+        $data = $request->validate([
+            'comment' => 'required|string|max:300'
+        ]);
+
+        Comments::create([
+            'comment_content' => $data['comment'],
+            'user_id' => session('user_id'), 
+            'recipe_id' => $id,          
+        ]);
+
+        return redirect("/recipedetails/$id");
 
 
     }
