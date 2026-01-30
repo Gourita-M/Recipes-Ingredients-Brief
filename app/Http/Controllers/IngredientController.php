@@ -8,6 +8,6 @@ class IngredientController extends Controller
 {
     public function index()
     {
-        return View('/recipes.details');
+        return View('/ingredients.addingredient');
     }
 }

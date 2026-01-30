@@ -51,7 +51,8 @@ class RecipeController extends Controller
         'user_id' => session('user_id'),
     ]);
     
-        return Redirect('recipes');
+        $userid = session('user_id');
+        return redirect("./own/$userid");
     }
 
     public function showMyRecipe($id)
@@ -75,7 +76,19 @@ class RecipeController extends Controller
 
         return redirect("/recipedetails/$id");
 
+    }
 
+    public function deleteRecipeinfo($id)
+    {
+        $info = Recipe::where('recipe_id', $id)->first();
+        return view('/recipes.removerecipe', compact('info'));
+    }
+
+    public function deleteRecipe($id)
+    {
+        Recipe::find($id)->delete();
+        $userid = session('user_id');
+        return redirect("./own/$userid");
     }
 
 }

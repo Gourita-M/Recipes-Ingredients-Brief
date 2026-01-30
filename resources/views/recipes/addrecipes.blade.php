@@ -82,7 +82,7 @@
 
                 <a href="./home"
                     class="flex-1 text-center bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300 transition">
-                    Cancle
+                    Cancel
                 </a>
             </div>
         </form>

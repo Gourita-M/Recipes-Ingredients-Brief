@@ -70,7 +70,12 @@
             <a
               href="/recipes/{{ $ree['recipe_id'] }}/edit"
               class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium py-2 px-3 rounded-lg transition">
-              ✏️ Edit Recipe
+              ✏️ edit Recipe
+            </a>
+            <a
+              href="../deleterecipe/{{ $ree['recipe_id'] }}"
+              class="flex-1 text-center bg-red-600 hover:bg-red-700 text-white text-sm font-medium py-2 px-3 rounded-lg transition">
+              Remove Recipe
             </a>
           </div>
         </div>

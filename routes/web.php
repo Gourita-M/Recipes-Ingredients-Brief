@@ -35,5 +35,6 @@ Route::post('/addrecipe', [RecipeController::class, 'addRecipe'])->name('recipe.
 Route::get('/own/{id}', [RecipeController::class, 'showMyRecipe']);
 
 Route::get('/ingredients/{id}', [IngredientController::class, 'index']);
-
+Route::get('/deleterecipe/{id}', [RecipeController::class, 'deleteRecipeinfo']);
+Route::get('/deleterecipe/delete/{id}', [RecipeController::class, 'deleteRecipe']);
 
