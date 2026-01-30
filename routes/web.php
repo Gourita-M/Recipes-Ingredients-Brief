@@ -5,6 +5,7 @@ use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\IngredientController;
 
 
 Route::get('/home', function () {
@@ -32,3 +33,7 @@ Route::get('/addrecipe', [RecipeController::class, 'Recipeform']);
 Route::post('/addrecipe', [RecipeController::class, 'addRecipe'])->name('recipe.submit');
 
 Route::get('/own/{id}', [RecipeController::class, 'showMyRecipe']);
+
+Route::get('/ingredients/{id}', [IngredientController::class, 'index']);
+
+
