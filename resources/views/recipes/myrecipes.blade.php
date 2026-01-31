@@ -63,12 +63,12 @@
           <div class="mt-auto flex gap-2">
 
             <a
-              href="./../ingredients/{{ $ree['recipe_id'] }}"
+              href="../ingredients/{{ $ree['recipe_id'] }}"
               class="flex-1 text-center bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-2 px-3 rounded-lg transition">
               ➕ Add Ingredients
             </a>
             <a
-              href="/recipes/{{ $ree['recipe_id'] }}/edit"
+              href="../recipes/edit/{{ $ree['recipe_id'] }}"
               class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium py-2 px-3 rounded-lg transition">
               ✏️ edit Recipe
             </a>

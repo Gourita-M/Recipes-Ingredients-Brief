@@ -37,8 +37,10 @@
     <nav class="hidden md:flex gap-8 text-sm">
       <a href="./home" class="hover:text-accent">Home</a>
       <a href="./recipes" class="hover:text-accent">Recipes</a>
+      
+      @if(session('username'))
       <a href="./own/{{session('user_id')}}" class="hover:text-accent">My Recipes</a>
-
+      @endif
     </nav>
     @if(session('username'))
       <div class="flex items-center gap-4">

@@ -36,8 +36,9 @@
     <nav class="hidden md:flex gap-8 text-sm">
       <a href="../home" class="hover:text-accent">Home</a>
       <a href="../recipes" class="hover:text-accent">Recipes</a>
+      @if(session('username'))
       <a href="../own/{{session('user_id')}}" class="hover:text-accent">My Recipes</a>
-
+      @endif
     </nav>
     @if(session('username'))
       <div class="flex items-center gap-4">
@@ -100,9 +101,10 @@
             class="text-indigo-600 hover:text-indigo-800 text-sm font-semibold">
             Edit
           </button>
-          <button type="submit" class="text-red-600 hover:text-red-800 text-sm font-semibold">
+          <a href="../haa9mesha/{{ $comment->comment_id}}/{{ $comment->recipe_id}}"
+           class="text-red-600 hover:text-red-800 text-sm font-semibold">
               Delete
-          </button>
+          </a>
         @endif
         </div>
       </div>
@@ -123,16 +125,23 @@
         placeholder="Write your comment..."
         class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-accent focus:outline-none"
         rows="4"></textarea>
-
+    @if(session('username'))
       <button
         type="submit"
         class="bg-accent text-white px-6 py-3 rounded-full hover:opacity-90">
         Post Comment
       </button>
     </form>
+    @else
+      <a href="../login"
+       class="px-4 py-2 rounded-full bg-accent text-white text-sm hover:opacity-90">
+      Login To Post a Comment
+    </a>
+    @endif
 
   </div>
 </section>
+
 
 <footer class="bg-white py-12 text-center text-sm">
   © 2026 GastroShare. All rights reserved.

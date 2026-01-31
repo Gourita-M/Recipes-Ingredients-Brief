@@ -91,4 +91,28 @@ class RecipeController extends Controller
         return redirect("./own/$userid");
     }
 
+    public function editRecipe($id)
+    {
+        $info = Recipe::find($id);
+
+        return view('/recipes.editrecipe', compact('info'));
+    }
+
+    public function edited(Request $request, $id)
+    {
+        $data = $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'image' => 'required',
+        ]);
+
+        Recipe::where('recipe_id', $id)->update([
+            'recipe_title' => $data['title'],
+            'recipe_description' => $data['description'],
+            'recipe_image' => $data['image'],
+        ]);
+
+        $userid = session('user_id');
+        return redirect("./own/$userid");
+    }
 }

@@ -1,6 +1,3 @@
-<?= session('user_id') ?>
-<?= session('username') ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,8 +39,9 @@
     <nav class="hidden md:flex gap-8 text-sm">
       <a href="./home" class="hover:text-accent">Home</a>
       <a href="./recipes" class="hover:text-accent">Recipes</a>
+      @if(session('username'))
       <a href="./own/{{session('user_id')}}" class="hover:text-accent">My Recipes</a>
-
+      @endif
     </nav>
     @if(session('username'))
       <div class="flex items-center gap-4">
@@ -129,84 +127,6 @@
       <p class="text-3xl font-bold text-accent">12</p>
       <p class="text-sm">Recipe Categories</p>
     </div>
-  </div>
-</section>
-
-<!-- ================= FILTER ================= -->
-<section class="py-16">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-6 justify-between items-center px-6">
-    <input type="text"
-           placeholder="Search for a recipe..."
-           class="w-full md:w-1/2 px-4 py-3 rounded-lg shadow" />
-    <select class="px-4 py-3 rounded-lg shadow">
-      <option>All categories</option>
-      <option>Starters</option>
-      <option>Main Dishes</option>
-      <option>Desserts</option>
-      <option>Drinks</option>
-    </select>
-  </div>
-</section>
-
-<!-- ================= RECIPES ================= -->
-<section class="py-24">
-  <h2 class="text-center font-serif text-3xl mb-14">Latest Recipes</h2>
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-6">
-
-    <div class="bg-white rounded-xl shadow overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1604908554026-74f94e45ad22"
-           class="h-48 w-full object-cover" />
-      <div class="p-6">
-        <h3 class="font-serif text-xl mb-2">Creamy Mushroom Pasta</h3>
-        <p class="text-sm mb-3">
-          A comforting and flavorful dish ready in just 30 minutes.
-        </p>
-        <div class="text-xs text-gray-500 mb-4">
-          ⏱ 30 min • ⭐ 4.7 • Medium
-        </div>
-        <div class="flex justify-between text-sm">
-          <span>Main Dish</span>
-          <a href="#" class="text-accent">View recipe</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-xl shadow overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
-           class="h-48 w-full object-cover" />
-      <div class="p-6">
-        <h3 class="font-serif text-xl mb-2">Fresh Summer Salad</h3>
-        <p class="text-sm mb-3">
-          Light, colorful, and perfect for hot summer days.
-        </p>
-        <div class="text-xs text-gray-500 mb-4">
-          ⏱ 15 min • ⭐ 4.5 • Easy
-        </div>
-        <div class="flex justify-between text-sm">
-          <span>Starter</span>
-          <a href="#" class="text-accent">View recipe</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-xl shadow overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e"
-           class="h-48 w-full object-cover" />
-      <div class="p-6">
-        <h3 class="font-serif text-xl mb-2">Molten Chocolate Cake</h3>
-        <p class="text-sm mb-3">
-          A must-have dessert for chocolate lovers.
-        </p>
-        <div class="text-xs text-gray-500 mb-4">
-          ⏱ 40 min • ⭐ 4.9 • Medium
-        </div>
-        <div class="flex justify-between text-sm">
-          <span>Dessert</span>
-          <a href="#" class="text-accent">View recipe</a>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 

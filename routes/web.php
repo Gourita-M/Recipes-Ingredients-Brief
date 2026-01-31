@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\CommentsController;
 
 
 Route::get('/home', function () {
@@ -38,3 +39,10 @@ Route::get('/ingredients/{id}', [IngredientController::class, 'index']);
 Route::get('/deleterecipe/{id}', [RecipeController::class, 'deleteRecipeinfo']);
 Route::get('/deleterecipe/delete/{id}', [RecipeController::class, 'deleteRecipe']);
 
+Route::get('/recipes/edit/{id}', [RecipeController::class, 'editRecipe']);
+
+Route::post('/recipes/edit/{id}/edited', [RecipeController::class, 'edited'])->name('edit.recipe');
+
+Route::post('/ingredients/{id}/add', [IngredientController::class, 'addIngredient'])->name('add.ingredient');
+
+Route::get('/haa9mesha/{id}/{recipe}', [CommentsController::class, 'removeComment']);

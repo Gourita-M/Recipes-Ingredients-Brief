@@ -9,3 +9,13 @@ Database -> Website : success
 Website -> User : recipe added
 
 @enduml
+
+
+**Link to the task schedule (Jira). + 
+Link to the GitHub repository containing: - 
+The website source code with all necessary files. 
+- UML diagrams: -- 
+Use case diagrams. -- 
+Class diagram. -- 
+A single Sequence diagram of a well-defined use case. + 
+Link to the presentation.
